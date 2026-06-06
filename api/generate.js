@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'API key tidak ditemukan.' });
   }
 
-  const MODEL    = 'gemini-2.0-flash';
+  const MODEL    = 'gemini-2.5-flash';
   const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
   const prompt = `Kamu adalah ensiklopedia fakta mengejutkan. 
