@@ -1,0 +1,242 @@
+
+.page-header {
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.page-title span {
+  color: var(--gold);
+}
+
+.page-sub {
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+/* --- Generate Button --- */
+#generate-btn {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 2px;
+  padding: 18px 48px;
+  border-radius: 14px;
+  background: var(--gold);
+  color: var(--bg-void);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+#generate-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+}
+
+#generate-btn:hover:not(:disabled)::before { opacity: 1; }
+
+#generate-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(253, 197, 77, 0.35);
+}
+
+#generate-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Spinning icon saat loading */
+.spin {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* --- Output Card --- */
+#output-card {
+  margin-top: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 36px;
+  max-width: 680px;
+  position: relative;
+  animation: card-in 0.4s var(--ease);
+}
+
+#output-card::before {
+  content: '✦';
+  position: absolute;
+  top: -12px;
+  left: 28px;
+  background: var(--gold);
+  color: var(--bg-void);
+  font-size: 14px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Thinking State --- */
+#thinking-state {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 0;
+}
+
+.thinking-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.thinking-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: dot-bounce 1.2s ease-in-out infinite;
+}
+
+.thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+.thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40%           { transform: scale(1);   opacity: 1; }
+}
+
+.thinking-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+}
+
+/* --- Output Text --- */
+#output-text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-primary);
+  font-weight: 400;
+  min-height: 60px;
+}
+
+/* --- Action Bar --- */
+#action-bar {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.action-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 60px;
+  flex-shrink: 0;
+}
+
+/* Copy & Publish */
+#copy-btn {
+  font-size: 13px;
+  padding: 9px 18px;
+  border-radius: 8px;
+}
+
+#publish-btn {
+  font-size: 13px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  background: var(--teal-dim);
+  color: var(--teal);
+  border: 1px solid rgba(77, 255, 210, 0.2);
+}
+
+#publish-btn:hover:not(:disabled) {
+  background: rgba(77, 255, 210, 0.18);
+  border-color: var(--teal);
+  transform: translateY(-1px);
+}
+
+/* Share Buttons */
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.share-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+
+.share-btn.twitter:hover  { border-color: #1d9bf0; color: #1d9bf0; }
+.share-btn.whatsapp:hover { border-color: #25d366; color: #25d366; }
+.share-btn.facebook:hover { border-color: #1877f2; color: #1877f2; }
+.share-btn.telegram:hover { border-color: #229ed9; color: #229ed9; }
+
+/* Divider */
+.action-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .page-title  { font-size: 36px; }
+  #generate-btn { font-size: 18px; padding: 15px 32px; }
+  #output-card  { padding: 24px; }
+  #output-text  { font-size: 15px; }
+  .action-row   { gap: 8px; }
+  .action-label { display: none; }
+}

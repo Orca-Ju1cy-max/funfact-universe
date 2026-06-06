@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FunFact Universe — Feed</title>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/sosmed.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside id="sidebar">
+
+    <!-- Logo -->
+    <div class="sidebar-logo">
+      <div class="logo-icon">✦</div>
+      <div class="logo-text">FUNFACT</div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sidebar-nav">
+      <a href="ai-funfact-generator.html" class="nav-item">
+        <span class="nav-icon">⚡</span>
+        <span class="nav-label">Generator</span>
+      </a>
+      <a href="sosmed.html" class="nav-item">
+        <span class="nav-icon">🌐</span>
+        <span class="nav-label">Feed</span>
+      </a>
+    </nav>
+
+    <!-- User -->
+    <div class="sidebar-footer">
+      <div class="sidebar-user" id="sidebar-user">
+        <div class="user-avatar" id="sidebar-avatar">?</div>
+        <div class="user-info">
+          <span class="user-name"   id="sidebar-username">Guest</span>
+          <span class="user-handle" id="sidebar-handle">Klik untuk login</span>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- Sidebar toggle -->
+  <button id="sidebar-toggle">‹</button>
+
+  <!-- ============ MAIN ============ -->
+  <main id="main-content">
+
+    <!-- Header -->
+    <div class="feed-header">
+      <div>
+        <h1 class="feed-title">FUNFACT<br /><span>FEED</span></h1>
+        <p class="feed-sub">Funfact terbaru dari komunitas. Login untuk ikut publish.</p>
+      </div>
+      <button id="refresh-btn" class="btn btn-ghost">↺ Refresh</button>
+    </div>
+
+    <!-- Feed list -->
+    <div id="feed"></div>
+
+    <!-- Empty state -->
+    <div id="feed-empty" class="hidden">
+      <div class="empty-icon">🌌</div>
+      <div class="empty-title">FEED MASIH KOSONG</div>
+      <p class="empty-sub">
+        Belum ada yang publish funfact.<br />
+        Jadilah yang pertama —
+        <a href="ai-funfact-generator.html">generate sekarang</a>.
+      </p>
+    </div>
+
+    <!-- Loader -->
+    <div id="feed-loader" class="hidden">
+      <div class="loader-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- Toast container -->
+<div id="toast-container"></div>
+
+<!-- JS — urutan penting! -->
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/sosmed.js"></script>
+</body>
+</html>

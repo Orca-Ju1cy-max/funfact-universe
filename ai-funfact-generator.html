@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FunFact Universe — Generator</title>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/generator.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside id="sidebar">
+
+    <!-- Logo -->
+    <div class="sidebar-logo">
+      <div class="logo-icon">✦</div>
+      <div class="logo-text">FUNFACT</div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sidebar-nav">
+      <a href="ai-funfact-generator.html" class="nav-item">
+        <span class="nav-icon">⚡</span>
+        <span class="nav-label">Generator</span>
+      </a>
+      <a href="sosmed.html" class="nav-item">
+        <span class="nav-icon">🌐</span>
+        <span class="nav-label">Feed</span>
+      </a>
+    </nav>
+
+    <!-- User -->
+    <div class="sidebar-footer">
+      <div class="sidebar-user" id="sidebar-user">
+        <div class="user-avatar" id="sidebar-avatar">?</div>
+        <div class="user-info">
+          <span class="user-name"   id="sidebar-username">Guest</span>
+          <span class="user-handle" id="sidebar-handle">Klik untuk login</span>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- Sidebar toggle -->
+  <button id="sidebar-toggle">‹</button>
+
+  <!-- ============ MAIN ============ -->
+  <main id="main-content">
+
+    <!-- Header -->
+    <div class="page-header">
+      <h1 class="page-title">AI FUNFACT<br /><span>GENERATOR</span></h1>
+      <p class="page-sub">
+        Discover rare, mind-blowing facts yang jarang diketahui orang —
+        powered by Gemini AI.
+      </p>
+    </div>
+
+    <!-- Generate Button -->
+    <button id="generate-btn" class="btn">
+      ✦ Generate Funfact
+    </button>
+
+    <!-- Output Card -->
+    <div id="output-card" class="hidden">
+
+      <!-- Thinking state -->
+      <div id="thinking-state">
+        <div class="thinking-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="thinking-label">AI is thinking...</span>
+      </div>
+
+      <!-- Funfact text -->
+      <p id="output-text"></p>
+
+      <!-- Action Bar -->
+      <div id="action-bar" class="hidden">
+
+        <div class="action-divider"></div>
+
+        <!-- Row 1: Copy & Publish -->
+        <div class="action-row">
+          <span class="action-label">Simpan</span>
+          <button id="copy-btn" class="btn btn-ghost">⎘ Copy</button>
+          <button id="publish-btn" class="btn">⬆ Publish ke Feed</button>
+        </div>
+
+        <!-- Row 2: Share luar -->
+        <div class="action-row">
+          <span class="action-label">Share</span>
+          <button id="share-twitter"  class="share-btn twitter">
+            𝕏 Twitter
+          </button>
+          <button id="share-whatsapp" class="share-btn whatsapp">
+            💬 WhatsApp
+          </button>
+          <button id="share-facebook" class="share-btn facebook">
+            Facebook
+          </button>
+          <button id="share-telegram" class="share-btn telegram">
+            ✈ Telegram
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- Toast container -->
+<div id="toast-container"></div>
+
+<!-- JS — urutan penting! -->
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/generator.js"></script>
+</body>
+</html>
